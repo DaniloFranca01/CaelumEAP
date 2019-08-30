@@ -13,11 +13,11 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 ## Descrição do Projeto
 
-Em construção
+O CaelumEAP é uma aplicação web que visa disponibilizar um espaço de auxílio clínico para profissionais de saúde, quanto às *Escalas Clínicas*, para avaliação e acompanhamento de pacientes, onde os profissionais poderão melhor visualizar os quadros evolutivos e/ou involutivos de seus pacientes, facilitando tomadas de decisões quanto aos procedimentos cabíveis no processo de tratamento dos pacientes.
 
 ## Justificativa do Projeto
 
-Em construção
+Devido à falta de praticidade e ausência de um bom armazenamento de informações das escalas clínicas que auxiliam na avaliação do estado de saúde de pacientes, surge a necessidade de um aplicativo que armazena essas informações e permite um melhor e mais prático acompanhamento dos pacientes.
 
 ## License
 
