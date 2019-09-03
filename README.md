@@ -6,7 +6,7 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 - [Danilo França](https://github.com/DaniloFranca01) (Desenvolvedor e Scrum Master);
 - [Fernando Oliveira](https://github.com/fernandofeoli) (Desenvolvedor, Tester e Product Owner);
-- [José Lúcio]() (Desenvolvedor front-ent);
+- [José Lúcio](https://github.com/zeLucio) (Desenvolvedor front-ent);
 - [Adriano Gonçalves](https://github.com/ags66) (Desenvolvedor front-ent);
 - [Bruno Artagoitia](https://github.com/bartagoitia1977) (Desenvolvedor);
 - [Gabriel Stadtler](https://github.com/gstadtler) (Desenvolvedor e Tester).
