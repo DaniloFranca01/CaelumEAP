@@ -23,4 +23,5 @@ RSpec.describe Funcionario, type: :model do
     funcionario2 = build(:user, email: nil)
     expect(funcionario2).to_not be_valid
   end
+  
 end

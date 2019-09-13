@@ -5,6 +5,6 @@ FactoryBot.define do
     cargo { %i[medico enfermeiro nutricionista fisioterapeuta].sample }
     email { FFaker::Internet.email }
     documento { FFaker::Random.rand(1..99) }
-    senha {'senha'}
+    senha { 'asdf1234' }
   end
 end
