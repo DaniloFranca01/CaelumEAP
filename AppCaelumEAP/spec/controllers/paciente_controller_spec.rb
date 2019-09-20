@@ -1,67 +1,58 @@
 require 'rails_helper'
+require 'spec_helper'
 require 'paciente'
 
 RSpec.describe PacienteController, type: :controller do
-    it 'should be define' do
-        expect { Paciente }.not_to raise_error
-    end
-    
+
     describe 'constructor' do
-        it 'should reject invalid cpf' do
-            expect { Paciente.new('','name',20,'male','in coma') }.to raise_error(ArgumentError)
+        before(:all) do
+            @paciente1 = build(:paciente)
         end
-        it 'should reject invalid name' do
-            expect { Paciente.new('000.000.000-00','',20,'male','in coma') }.to raise_error(ArgumentError)
+        it 'should reject empty cpf' do
+            @paciente2 = build(:paciente, cpf: nil) 
+            expect(@paciente2).to_not be_valid
         end
-        it 'has a age' do
-            expect(Paciente.age).to be_a_kind_of(Integer)
-            expect(Paciente.age).to be > 0
+        it 'should reject empty name' do
+            @paciente2 = build(:paciente, nome: nil)
+            expect(@paciente2).to_not be_valid
         end
-        it 'has a gender' do
-            expect(Paciente.gender).to be_a_kind_of(String)
+        it 'has an age' do
+            expect(@paciente1.idade).to be_a_kind_of(Integer)
+            expect(@paciente1.idade).to be > 0
         end
-        it 'has a diagnostic' do
-            expect(Paciente.diagnostic_hypothesis).to be_a_kind_of(String)
-            expect(Paciente.diagnostic_hypothesis).to be_an(Paciente.diagnostics)
+        it 'has an gender' do
+            expect(@paciente1.genero).to be_a_kind_of(String)
+        end
+        it 'has an diagnostic' do
+            expect(@paciente1.hip_diag).to be_a_kind_of(String)
+            #expect(@paciente2.hip_diag).to be_an(Paciente.diagnostics)
         end
     end
 
     describe 'getters and setters' do
-    before(:each)  { @paciente = Paciente.new('000.000.000-00','name',20,'male','in coma') }
+        cpf = FFaker::IdentificationBR.cpf 
+        nome = FFaker::Name.name
+        idade = FFaker::Random.rand(1..999)
+        genero = FFaker::IdentificationBR.gender
+        hip_diag = FFaker::Lorem.sentence(word_count = 4)
+        
+        before(:all) do
+        @paciente = build(:paciente, cpf:cpf, nome: nome, idade: idade, genero: genero, hip_diag: hip_diag)
+        end
+        
         it 'should set cpf' do
-            expect(@paciente.cpf).to eq('000.000.000-00')
+            expect(@paciente.cpf).to eq(cpf)
         end
         it 'should set name' do
-            expect(@paciente.name).to eq('name')
+            expect(@paciente.nome).to eq(nome)
         end
         it 'should be able to change cpf' do
-            @paciente.cpf = '111.111.111-11'
-            expect(@paciente.cpf).to eq('111.111.111-11')
+            paciente.cpf = cpf
+            expect(@paciente.cpf).to eq(cpf)
         end
         it 'should be able to change name' do
-            @paciente.name = 'newname'
-            expect(@paciente.name).to eq('newname')
-        end
-    end
-
-    describe '#list_pacientes' do
-        it 'should be define' do
-            #expect {}.to  
-        end
-        it 'should display pacientes in list' do
-            #expect(Paciente.list_pacientes).to 
-        end
-    end
-
-    describe '#remove_paciente' do
-        it 'should be define' do
-            #expect {}.to  
-        end
-    end
-
-    describe '#show_statistics' do
-        it 'should be define' do
-            #expect {}.to  
+            @paciente.name = nome
+            expect(@paciente.nome).to eq(nome)
         end
     end
 
