@@ -1,4 +1,4 @@
-class PacienteController < ApplicationController
+class PacientesController < ApplicationController
 =begin
     def initialize(cpf,nome,idade,genero,hip_diag)
       @cpf = cpf
@@ -9,7 +9,7 @@ class PacienteController < ApplicationController
     end
 =end
     def index
-        @pacientes = Paciente.all
+        @paciente = Paciente.all
     end
 
     def create

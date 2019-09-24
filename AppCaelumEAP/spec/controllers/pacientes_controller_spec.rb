@@ -1,20 +1,19 @@
 require 'rails_helper'
-require 'spec_helper'
-require 'paciente'
+#require 'spec_helper'
 
-RSpec.describe PacienteController, type: :controller do
+RSpec.describe PacientesController, type: :controller do
 
     describe 'constructor' do
         before(:all) do
             @paciente1 = build(:paciente)
         end
-        it 'should reject empty cpf' do
+        it 'is not valid without a cpf' do
             @paciente2 = build(:paciente, cpf: nil) 
-            expect(@paciente2).to_not be_valid
+            expect(@paciente2).not_to be_valid
         end
-        it 'should reject empty name' do
+        it 'is not valid without a name' do
             @paciente2 = build(:paciente, nome: nil)
-            expect(@paciente2).to_not be_valid
+            expect(@paciente2).not_to be_valid
         end
         it 'has an age' do
             expect(@paciente1.idade).to be_a_kind_of(Integer)
@@ -25,12 +24,11 @@ RSpec.describe PacienteController, type: :controller do
         end
         it 'has an diagnostic' do
             expect(@paciente1.hip_diag).to be_a_kind_of(String)
-            #expect(@paciente2.hip_diag).to be_an(Paciente.diagnostics)
         end
     end
 
     describe 'getters and setters' do
-        cpf = FFaker::IdentificationBR.cpf 
+        cpf = (FFaker::IdentificationBR.cpf).to_i
         nome = FFaker::Name.name
         idade = FFaker::Random.rand(1..999)
         genero = FFaker::IdentificationBR.gender
@@ -47,12 +45,14 @@ RSpec.describe PacienteController, type: :controller do
             expect(@paciente.nome).to eq(nome)
         end
         it 'should be able to change cpf' do
-            paciente.cpf = cpf
-            expect(@paciente.cpf).to eq(cpf)
+            novo_cpf = (FFaker::IdentificationBR.cpf).to_i
+            @paciente.cpf = novo_cpf
+            expect(@paciente.cpf).to eq(novo_cpf)
         end
         it 'should be able to change name' do
-            @paciente.name = nome
-            expect(@paciente.nome).to eq(nome)
+            novo_nome = FFaker::Name.name
+            @paciente.nome = novo_nome
+            expect(@paciente.nome).to eq(novo_nome)
         end
     end
 
