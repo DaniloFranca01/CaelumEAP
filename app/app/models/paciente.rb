@@ -1,2 +1,0 @@
-class Paciente < ApplicationRecord
-end
