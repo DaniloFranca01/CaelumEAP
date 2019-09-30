@@ -6,13 +6,13 @@ Feature: Cadastro de Pacientes
 Scenario: Successful register of pacient
     Given I am on the pacientes page
     When I click on the 'New Paciente' link
-    And I fill Cpf with <12345678910>
-    And I fill Nome with <Nome do Paciente>
-    And I fill Idade with <42>
-    And I fill Genero with <Feminino>
-    And I fill Hip diag with <Suspeitas de cancer de mama>
-    And click on the 'Create Paciente' button
-    Then I should see the text Paciente was successfully created.
+    And I fill 'cpf' with '12345678910'
+    And I fill 'nome' with 'Nome do Paciente'
+    And I fill 'idade' with '42'
+    And I fill 'genero' with 'Feminino'
+    And I fill 'hip_diag' with 'Suspeitas de cancer de mama'
+    And I click on the 'Create Paciente' button
+    Then I should see the text 'Paciente was successfully created.'
 
 Scenario: Patient register without Cpf
     Given I am on the pacientes page
@@ -21,7 +21,7 @@ Scenario: Patient register without Cpf
     And I fill Idade with <42>
     And I fill Genero with <Feminino>
     And I fill Hip diag with <Suspeitas de cancer de mama>
-    And click on the 'Create Paciente' button
+    And I click on the 'Create Paciente' button
     Then I should see the text Invalid Cpf or Nome.
 
 Scenario: Patient register without Nome
@@ -31,5 +31,5 @@ Scenario: Patient register without Nome
     And I fill Idade with <42>
     And I fill Genero with <Feminino>
     And I fill Hip diag with <Suspeitas de cancer de mama>
-    And click on the 'Create Paciente' button
+    And I click on the 'Create Paciente' button
     Then I should see the text Invalid Cpf or Nome.
