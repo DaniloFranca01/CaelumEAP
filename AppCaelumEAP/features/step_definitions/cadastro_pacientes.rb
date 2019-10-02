@@ -6,10 +6,6 @@ Given('I am on the pacientes page') do
   visit('pacientes')
 end
 
-When('I click on the {string} link') do |texto|
-  click_link(texto)
-end
-
 When('I fill {string} with {string}') do |texto, string2|
   fill_in('paciente_' + texto, with: string2)
 end

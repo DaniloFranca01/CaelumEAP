@@ -5,5 +5,5 @@ Feature: Vizualizar Pacientes
 
 Scenario: Successful pacients vizualisation 
     Given I am on the home page
-    When I click on the 'Mostrar Pacientes' button
-    Then I will be redirected to the pacientes page
+    When I click on the 'Mostrar Pacientes' link
+    Then I will be redirected to the 'pacientes' page
