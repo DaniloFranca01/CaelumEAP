@@ -17,19 +17,21 @@ Scenario: Successful register of pacient
 Scenario: Patient register without Cpf
     Given I am on the pacientes page
     When I click on the 'New Paciente' link
-    And I fill Nome with <Nome do Paciente>
-    And I fill Idade with <42>
-    And I fill Genero with <Feminino>
-    And I fill Hip diag with <Suspeitas de cancer de mama>
+    And I fill 'cpf' with ''
+    And I fill 'nome' with 'Nome do Paciente'
+    And I fill 'idade' with '42'
+    And I fill 'genero' with 'Feminino'
+    And I fill 'hip_diag' with 'Suspeitas de cancer de mama'
     And I click on the 'Create Paciente' button
-    Then I should see the text Invalid Cpf or Nome.
+    Then I should see the text 'Invalid: Field can not be empty.'
 
 Scenario: Patient register without Nome
     Given I am on the pacientes page
     When I click on the 'New Paciente' link
-    And I fill Cpf with <12345678910>
-    And I fill Idade with <42>
-    And I fill Genero with <Feminino>
-    And I fill Hip diag with <Suspeitas de cancer de mama>
+    And I fill 'cpf' with '12345678910'
+    And I fill 'nome' with ''
+    And I fill 'idade' with '42'
+    And I fill 'genero' with 'Feminino'
+    And I fill 'hip_diag' with 'Suspeitas de cancer de mama'
     And I click on the 'Create Paciente' button
-    Then I should see the text Invalid Cpf or Nome.
+    Then I should see the text 'Invalid: Field can not be empty.'
