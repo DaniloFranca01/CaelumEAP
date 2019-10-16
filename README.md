@@ -6,7 +6,6 @@ Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em
 
 - [Danilo França](https://github.com/DaniloFranca01) (Desenvolvedor e Scrum Master);
 - [Fernando Oliveira](https://github.com/fernandofeoli) (Desenvolvedor, Tester e Product Owner);
-- [José Lúcio](https://github.com/zeLucio) (Desenvolvedor front-ent);
 - [Adriano Gonçalves](https://github.com/ags66) (Desenvolvedor front-ent);
 - [Bruno Artagoitia](https://github.com/bartagoitia1977) (Desenvolvedor/ Modelador);
 - [Gabriel Stadtler](https://github.com/gstadtler) (Desenvolvedor e Tester).
@@ -18,6 +17,10 @@ O CaelumEAP é uma aplicação web que visa disponibilizar um espaço de auxíli
 ## Justificativa do Projeto
 
 Devido à falta de praticidade e ausência de um bom armazenamento de informações das escalas clínicas que auxiliam na avaliação do estado de saúde de pacientes, surge a necessidade de um aplicativo que armazena essas informações e permite um melhor e mais prático acompanhamento dos pacientes.
+
+## Aplicação
+
+[Heroku](https://appcaelumeap.herokuapp.com)
 
 ## License
 
