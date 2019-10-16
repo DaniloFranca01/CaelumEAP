@@ -53,3 +53,4 @@ Término: 16/10/2019
 * Não deixar o que pode ser feito hoje para o dia do fim da iteração
 * Testes são muito importantes
 
+
