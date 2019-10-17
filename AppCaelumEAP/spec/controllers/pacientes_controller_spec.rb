@@ -54,7 +54,7 @@ RSpec.describe PacientesController, type: :controller do
   end
 
   describe 'getters and setters' do
-    cpf = FFaker::IdentificationBR.cpf.to_i
+    cpf = FFaker::IdentificationBR.cpf
     nome = FFaker::Name.name
     idade = FFaker::Random.rand(1..999)
     genero = FFaker::IdentificationBR.gender
@@ -71,7 +71,7 @@ RSpec.describe PacientesController, type: :controller do
       expect(@paciente.nome).to eq(nome)
     end
     it 'should be able to change cpf' do
-      novo_cpf = FFaker::IdentificationBR.cpf.to_i
+      novo_cpf = FFaker::IdentificationBR.cpf
       @paciente.cpf = novo_cpf
       expect(@paciente.cpf).to eq(novo_cpf)
     end

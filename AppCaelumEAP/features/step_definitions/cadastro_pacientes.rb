@@ -2,8 +2,16 @@
 
 # features/cadastro_pacientes.feature
 
-Given('I am on the pacientes page') do
-  visit('pacientes')
+Given('I am at the index page') do
+  visit('/')
+  User.create(nome: 'userTest', cargo: 'medico', documento: '112233', email: 'user@test.com', password: '123456')
+  fill_in('user_email', with: 'user@test.com')
+  fill_in('user_password', with:'123456')
+  click_button('Log in')
+end
+
+When('I click on {string} link') do |texto|
+  click_link(texto)
 end
 
 When('I fill {string} with {string}') do |texto, string2|
