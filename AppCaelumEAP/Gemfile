@@ -5,6 +5,12 @@ ruby '2.6.3'
 
 #Devise
 gem 'devise'
+#Omniauth
+gem 'omniauth-google-oauth2', '~> 0.2.2'
+#figaro
+gem 'figaro'
+# Google API client
+gem 'google-api-client', '~> 0.13.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
