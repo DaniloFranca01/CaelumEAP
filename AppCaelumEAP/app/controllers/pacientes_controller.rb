@@ -5,7 +5,8 @@ class PacientesController < ApplicationController
   # GET /pacientes
   # GET /pacientes.json
   def index
-    @pacientes = Paciente.all
+    @user = current_user
+    @pacientes = @user.pacientes.all if @user
   end
 
   # GET /pacientes/1
@@ -70,6 +71,6 @@ class PacientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_params
-      params.require(:paciente).permit(:cpf, :nome, :idade, :genero, :hip_diag)
+      params.require(:paciente).permit(:cpf, :nome, :idade, :genero, :hip_diag, :user_id).merge(user: current_user)
     end
 end

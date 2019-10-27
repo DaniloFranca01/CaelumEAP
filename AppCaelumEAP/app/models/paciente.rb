@@ -4,4 +4,5 @@ class Paciente < ApplicationRecord
         #uniqueness: {message: 'Invalid: Cpf already exists'}
 
     validates :nome, presence: {message: 'Invalid: Field can not be empty.'}
+    belongs_to :user
 end
