@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 2019_10_26_221911) do
     t.string "nome"
     t.string "cargo"
     t.string "documento"
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
+    t.integer "expires_at"
+    t.boolean "expires"
+    t.string "refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
