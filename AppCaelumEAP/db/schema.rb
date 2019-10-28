@@ -15,17 +15,6 @@ ActiveRecord::Schema.define(version: 2019_10_26_221911) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "funcionarios", id: false, force: :cascade do |t|
-    t.string "id"
-    t.string "nome"
-    t.string "cargo"
-    t.string "email"
-    t.integer "documento"
-    t.string "senha"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pacientes", force: :cascade do |t|
     t.string "cpf"
     t.string "nome"
