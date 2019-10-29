@@ -3,14 +3,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-#Devise
+# Devise
 gem 'devise'
-#Omniauth
+# Omniauth
 gem 'omniauth-google-oauth2', '~> 0.2.2'
-#figaro
+# Figaro
 gem 'figaro'
 # Google API client
 gem 'google-api-client', '~> 0.13.6'
+# Integração react-rails
+gem 'react-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
