@@ -1,27 +1,34 @@
 # frozen_string_literal: true
 
-class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+module Users
+  class SessionsController < Devise::SessionsController
+    # POST /v1/login
+    def create
+      @user = User.find_by_email(user_params[:email])
+      return invalid_login_attempt unless @user
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+      if @user.valid_password?(user_params[:password])
+        sign_in :user, @user
+        render json: @user
+      else
+        invalid_login_attempt
+      end
+    end
 
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+    def destroy
+      sign_out(@user)
+      render :json => { :success => true }
+    end
 
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+    private
 
-  # protected
+    def invalid_login_attempt
+      warden.custom_failure!
+      render json: { error: 'invalid login attempt' }, status: :unprocessable_entity
+    end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+    def user_params
+      params.require(:user).permit(:email, :password)
+    end
+  end
 end

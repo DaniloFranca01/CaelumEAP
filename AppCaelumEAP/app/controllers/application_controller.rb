@@ -23,7 +23,9 @@ class ApplicationController < ActionController::Base
     )
     render json: response
   end
-
+  
+  protect_from_forgery with: :null_session,
+      if: Proc.new { |c| c.request.format =~ %r{application/json} }
   before_action :configure_sign_up_params, only: [:create], if: :devise_controller?
   before_action :configure_account_update_params, only: [:update], if: :devise_controller?
 

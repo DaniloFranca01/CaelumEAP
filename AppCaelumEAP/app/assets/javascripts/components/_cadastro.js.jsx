@@ -1,4 +1,18 @@
 class UserCadastro extends React.Component {
+  handleSignup(e) {
+    e.preventDefault();
+    let body = JSON.stringify({user: {nome: document.getElementById("nome").value, cargo: document.getElementById("cargo").value,
+      documento: document.getElementById("documento").value, email: document.getElementById("email").value,
+      password: document.getElementById("password").value, password_confirmation: document.getElementById("password_confirmation").value } })
+    fetch('/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: body,
+    }).then((response) => {return response.json()})
+  }
+
   render(){
     return(
       <div>
@@ -14,21 +28,21 @@ class UserCadastro extends React.Component {
                 <h3>Cadastro</h3>
               </div>
               <div class="card-body">
-                <form action='/sessions' method='post'>
+                <form>
                   <div class="input-group form-group">
-                    <input type="text" class="form-control" placeholder="Email"/>
+                    <input id="email" type="text" class="form-control" placeholder="Email"/>
                   </div>
                   <div class="input-group form-group">
-                    <input type="password" class="form-control" placeholder="Senha (no mínimo 6 caracteres)"/>
+                    <input id ="password" type="password" class="form-control" placeholder="Senha (no mínimo 6 caracteres)"/>
                   </div>
                   <div class="input-group form-group">
-                    <input type="text" class="form-control" placeholder="Confirme a senha"/>
+                    <input id = "password_confirmation" type="password" class="form-control" placeholder="Confirme a senha"/>
                   </div>
                   <div class="input-group form-group">
-                    <input type="text" class="form-control" placeholder="Nome"/>
+                    <input id="nome" type="text" class="form-control" placeholder="Nome"/>
                   </div>
                   <div class="input-group form-group cargos">
-                    <select name="cargos">
+                    <select id="cargo" name="cargos">
                       <option>Selecione o seu cargo</option>
                       <option value="enfermeiro">Enfermeiro</option>
                       <option value="fisioterapeuta">Fisioterapeuta</option>
@@ -37,10 +51,10 @@ class UserCadastro extends React.Component {
                     </select>
                   </div>
                   <div class="input-group form-group">
-                    <input type="text" class="form-control" placeholder="Documento"/>
+                    <input id="documento" type="text" class="form-control" placeholder="Documento"/>
                   </div>
                   <div class="form-group">
-                    <input type="submit" value="Enviar" class="btn float-right login_btn"/>
+                    <input onClick={this.handleSignup} type="submit" value="Enviar" class="btn float-right login_btn"/>
                   </div>
                 </form>
               </div>

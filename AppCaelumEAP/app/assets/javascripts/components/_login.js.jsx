@@ -1,5 +1,22 @@
 class LoginPage extends React.Component {
-  render(){
+
+	handleSubmit(e) {
+		e.preventDefault();
+    let body = JSON.stringify({user: {email: document.getElementById("email").value,
+      password: document.getElementById("password").value } })
+    fetch('/users/sign_in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: body,
+		}).then((response) => {
+			if (response.data.logged_in) {
+				this.props.history.push("/pacientes");
+			}
+		})
+  }
+	render(){		
     return(
       <div>
         <head>
@@ -17,30 +34,30 @@ class LoginPage extends React.Component {
 				</div>
 			  </div>
 			  <div class="card-body">
-			    <form action='/sessions' method='post'>
+			    <form >
 				  <div class="input-group form-group">
 				    <div class="input-group-prepend">
 					  <span class="input-group-text"><i class="fas fa-user"></i></span>
 					</div>
-					<input type="text" class="form-control" placeholder="usuário"/>
+					<input id='email' type="text" class="form-control" placeholder="Usuário"/>
 				  </div>
 				  <div class="input-group form-group">
 				    <div class="input-group-prepend">
 					  <span class="input-group-text"><i class="fas fa-key"></i></span>
 					</div>
-					<input type="password" class="form-control" placeholder="senha"/>
+					<input id='password' type="password" class="form-control" placeholder="Senha"/>
 				  </div>
 				  <div class="row align-items-center remember">
 					<input type="checkbox"/>Lembrar-me
 				  </div>
 				  <div class="form-group">
-					<input type="submit" value="Login" class="btn float-right login_btn"/>
+					<input onClick={this.handleSubmit} type="submit" value="Login" class="btn float-right login_btn"/>
 				  </div>
 				</form>
 			  </div>
 			  <div class="card-footer">
 			    <div class="d-flex justify-content-center links">
-				  Ainda não é cadastrado?<a href="/">Inscreva-se</a>
+				  Ainda não é cadastrado?<a href="/users/sign_up">Inscreva-se</a>
 				</div>
 				<div class="d-flex justify-content-center links">
 				  <a href="/">Esqueceu sua senha?</a>
