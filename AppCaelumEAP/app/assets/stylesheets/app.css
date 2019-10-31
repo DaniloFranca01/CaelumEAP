@@ -1,16 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
+  height: 100%;
+  font-family: 'Numans', sans-serif;
+}
+
+body > div{
+  height: 100%;
+}
+
+body > div > div{
+  height: 100%;
+}
+
+.login-cadastro{
   background-image: url('https://raw.githubusercontent.com/gstadtler/CaelumEAP/master/login_background.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
-  font-family: 'Numans', sans-serif;
 }
 
 .container{
   height: 100%;
   align-content: center;
+}
+
+.card{
+  height: 370px;
+  margin-top: 100px;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
 }
 
 .card-cadastro{
@@ -23,6 +43,14 @@ html,body{
 
 .cargos{
   height: 35px;
+}
+
+.table-header{
+  background-color: #ffa500;
+  color: white;
+}
+.tabela-pacientes{
+  position: relative;
 }
 
 .social_icon span{
@@ -59,6 +87,10 @@ input:focus{
 
 }
 
+.remember{
+  color: white;
+}
+
 .remember input{
   width: 20px;
   height: 20px;
@@ -84,3 +116,7 @@ input:focus{
 .links a{
   margin-left: 4px;
 }
+
+.links a:hover{
+  background-color: white;
+} 
