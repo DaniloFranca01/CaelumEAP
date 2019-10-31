@@ -7,7 +7,7 @@ const Main = (props) => {
 }
 const Login = (props) => {
   return(
-    <div>
+    <div class="login-main">
       <LoginPage />
     </div>
   )
@@ -22,7 +22,6 @@ const Cadastro = (props) => {
 const Paciente = (props) => {
   return(
     <div>
-      <h1>Meus Pacientes</h1>
       <Pacientes />
     </div>
   )
