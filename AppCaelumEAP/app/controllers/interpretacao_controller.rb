@@ -1,0 +1,2 @@
+class InterpretacaoController < ApplicationController
+end

@@ -1,0 +1,2 @@
+module InterpretacaoHelper
+end
