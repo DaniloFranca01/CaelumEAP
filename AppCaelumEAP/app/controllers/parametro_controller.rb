@@ -1,2 +1,0 @@
-class ParametroController < ApplicationController
-end

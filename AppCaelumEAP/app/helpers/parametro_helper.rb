@@ -1,2 +1,0 @@
-module ParametroHelper
-end

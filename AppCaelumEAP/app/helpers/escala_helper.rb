@@ -1,2 +1,0 @@
-module EscalaHelper
-end

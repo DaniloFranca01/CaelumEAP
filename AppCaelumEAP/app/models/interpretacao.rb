@@ -1,2 +1,0 @@
-class Interpretacao < ApplicationRecord
-end

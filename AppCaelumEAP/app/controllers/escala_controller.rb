@@ -1,2 +1,0 @@
-class EscalaController < ApplicationController
-end
